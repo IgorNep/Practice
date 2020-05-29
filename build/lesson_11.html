@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<link href="lesson_11.css" rel="stylesheet"></head>
+
+<body>
+    <div class="lighter" id="firstLighter">
+        <div class="lighter__light lighter__light_red">1</div>
+        <div class="lighter__light lighter__light_red">1</div>
+        <div class="lighter__light lighter__light_yellow">2</div>
+        <div class="lighter__light lighter__light_yellow">2</div>
+        <div class="lighter__light lighter__light_green">3</div>
+        <div class="lighter__light lighter__light_green">3</div>
+    </div>
+    <div class="lighter" id="secondLighter">
+        <div class="lighter__light lighter__light_red">1</div>
+        <div class="lighter__light lighter__light_green">2</div>
+    </div>
+    <div class="lighter" id="thirdLighter">
+        <div class="lighter__light lighter__light_red">1</div>
+        <div class="lighter__light lighter__light_yellow">2</div>
+    </div>
+    <div class="toggler" id="toggler1">
+        <button class="toggler__btn">Toggle</button>
+        <div class="toggler__lamp"></div>
+    </div>
+    <script>
+        function lighter (parentSelector) {
+            const parentElement = document.querySelector(parentSelector);
+            const lights = parentElement.querySelectorAll('.lighter__light');
+            console.log(lights);
+            let currentActive = undefined;
+
+            for (let i = 0; i < lights.length; i++) {
+                let light = lights[i];
+                light.onclick = function () {
+                    switchOff();
+                    switchOn(light);
+                };
+            }
+
+            function switchOff() {
+                if (currentActive) {
+                    currentActive.classList.remove('active');
+                }
+            }
+
+            function switchOn(someLight) {
+                someLight.classList.add('active');
+                currentActive = someLight;
+            }
+        }
+
+        lighter('#firstLighter');
+        lighter('#secondLighter');
+        lighter('#thirdLighter');
+
+        function toggler (selector, color) {
+            const parentElement = document.querySelector(selector);
+            const btn = parentElement.querySelector('.toggler__btn');
+            const lamp = parentElement.querySelector('.toggler__lamp');
+            let isEnabled = Boolean(lamp.style.backgroundColor);
+        
+            if(isEnabled) {
+                btn.textContent = 'Off';
+            } else {
+                btn.textContent = 'On';
+            }
+
+            btn.onclick = function () {
+                console.log(btn.textContent);
+                if (isEnabled) {
+                    btn.textContent = 'On';
+                    lamp.style.backgroundColor = 'transparent';
+                    isEnabled = false;
+                } else {
+                    btn.textContent = 'Off';
+                    lamp.style.backgroundColor = color;
+                    isEnabled = true;
+                }
+               
+            }
+        }
+
+        toggler('#toggler1', 'red')
+    </script>
+<script type="text/javascript" src="vendors.js"></script><script type="text/javascript" src="lesson_11.js"></script></body>
+
+</html>

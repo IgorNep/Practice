@@ -1,0 +1,12 @@
+.comment {
+    width: 100%;
+    border-bottom: 1px solid grey;
+    padding: 10px;
+    &__text {
+        margin-bottom: 10px;
+    }
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+    }
+}

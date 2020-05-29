@@ -1,0 +1,20 @@
+.lighter{
+    width:50px;
+    border:1px solid grey;
+    &__light{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        outline: none;
+        &_red.active{
+            background-color: red;
+        }
+        &_yellow.active{
+            background-color: yellow;
+        }
+        &_green.active{
+            background-color: green;
+        }
+    }
+}
+

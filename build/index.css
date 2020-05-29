@@ -1,0 +1,6 @@
+.test {
+  background: aqua; }
+  .test__item {
+    border: 1px solid red; }
+  .test__child {
+    background: red; }

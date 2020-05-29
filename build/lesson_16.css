@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box; }
+.comment {
+  width: 100%;
+  border-bottom: 1px solid grey;
+  padding: 10px; }
+  .comment__text {
+    margin-bottom: 10px; }
+  .comment__footer {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between; }
